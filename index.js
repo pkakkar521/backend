@@ -5,7 +5,7 @@ const { userRouter } = require("./routes/users.routes")
 const { noteRouter } = require("./routes/notes.routes")
 const { perRouter } = require("./routes/pers.routes")
 const { productRouter } = require("./routes/products.routes")
-const { User } = require("./models/UserModel"); 
+
 require("dotenv").config()
 const port = process.env.PORT
 const app = express()
@@ -17,22 +17,13 @@ app.use("/pro",productRouter)
 app.use("/per",perRouter)
 
 
-app.get("/home",(req,res)=>{
+app.get("/",(req,res)=>{
 
     res.send({
         message:"api is working now"
     })
 })
-app.post("/ister",async(req,resp)=>{
-    let user=new User(req.body);
-    let result=await user.save();
-    result=result.toObject();
-    delete result.password
-    resp.send({
-        message:"going"
-    })
-    resp.send(result);
-})
+
 
 app.listen(port,async()=>{
 
