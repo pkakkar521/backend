@@ -16,7 +16,7 @@ app.use("/pro",productRouter)
 app.use("/per",perRouter)
 
 
-app.get("/",(req,res)=>{
+app.get("/home",(req,res)=>{
 
     res.send({
         message:"api is working now"
