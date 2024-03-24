@@ -22,7 +22,16 @@ app.get("/home",(req,res)=>{
         message:"api is working now"
     })
 })
-
+app.post("/ister",async(req,resp)=>{
+    let user=new User(req.body);
+    let result=await user.save();
+    result=result.toObject();
+    delete result.password
+    resp.send({
+        message:"going"
+    })
+    resp.send(result);
+})
 
 app.listen(port,async()=>{
 
