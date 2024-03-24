@@ -5,6 +5,7 @@ const { userRouter } = require("./routes/users.routes")
 const { noteRouter } = require("./routes/notes.routes")
 const { perRouter } = require("./routes/pers.routes")
 const { productRouter } = require("./routes/products.routes")
+const { User } = require("../models/UserModel"); 
 require("dotenv").config()
 const port = process.env.PORT
 const app = express()
